@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_25_211042) do
+ActiveRecord::Schema.define(version: 2023_05_25_212006) do
 
   create_table "drugs", force: :cascade do |t|
     t.string "name"
     t.string "dose"
     t.string "formulation"
     t.integer "quantity"
+    t.integer "pharmacy_id"
   end
 
   create_table "pharmacies", force: :cascade do |t|
