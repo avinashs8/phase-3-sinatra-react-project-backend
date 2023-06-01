@@ -10,4 +10,9 @@ class DrugsController < ApplicationController
         drug.to_json
     end
 
+    delete '/drugs/:id' do 
+        drug = Drug.find_by(id: params[:id])
+        drug.destroy
+    end
+
 end
