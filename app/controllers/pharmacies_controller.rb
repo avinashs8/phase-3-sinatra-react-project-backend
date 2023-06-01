@@ -9,4 +9,6 @@ class PharmaciesController < ApplicationController
         pharmacy = Pharmacy.find_by(id: params[:id])
         pharmacy.to_json(include: :drugs)
     end
+
+    
 end
