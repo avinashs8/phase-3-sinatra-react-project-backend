@@ -5,6 +5,7 @@ class DrugsController < ApplicationController
         drugs.to_json(include: [:pharmacy])
     end
 
+
     post '/drugs' do
         drug = Drug.create(params)
         drug.to_json
@@ -13,6 +14,11 @@ class DrugsController < ApplicationController
     delete '/drugs/:id' do 
         drug = Drug.find_by(id: params[:id])
         drug.destroy
+    end
+
+    patch '/drugs/:id' do 
+        drug = Drug.find_by(id: params[:id])
+        drug.update(params)
     end
 
 end
