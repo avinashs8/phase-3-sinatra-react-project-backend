@@ -23,6 +23,6 @@ class PharmaciesController < ApplicationController
 
     delete '/pharmacies/:id/drugs/:drug_id' do
         pharmacy = Pharmacy.find_by(id: params[:id])
-        pharmacy.drugs.find_by(id: params[:drug_id]).destroy
+        pharmacy.drugs.find_by(id: params[:drug_id]).destroy.to_json
     end
 end
