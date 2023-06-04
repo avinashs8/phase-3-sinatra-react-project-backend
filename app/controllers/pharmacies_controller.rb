@@ -26,7 +26,7 @@ class PharmaciesController < ApplicationController
         pharmacy.drugs.find_by(id: params[:drug_id]).destroy.to_json
     end
 
-    patch '//pharmacies/:id/drugs/:drug_id' do
+    patch '/pharmacies/:id/drugs/:drug_id' do
         pharmacy = Pharmacy.find_by(id: params[:id])
         pharmacy.drugs.find_by(id: params[:drug_id]).update(params)
     end
