@@ -30,6 +30,6 @@ class PharmaciesController < ApplicationController
         pharmacy = Pharmacy.find_by(id: params[:id])
         drug = pharmacy.drugs.find_by(id: params[:drug_id])
         drug.update(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
-        drug.reload.to_json
+        drug.to_json
     end
 end
