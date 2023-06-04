@@ -28,6 +28,8 @@ class PharmaciesController < ApplicationController
 
     patch '/pharmacies/:id/drugs/:drug_id' do
         pharmacy = Pharmacy.find_by(id: params[:id])
-        pharmacy.drugs.find_by(id: params[:drug_id]).update(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
+        drug = pharmacy.drugs.find_by(id: params[:drug_id])
+        drug.update(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
+        drug.reload.to_json
     end
 end
