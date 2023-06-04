@@ -20,4 +20,9 @@ class PharmaciesController < ApplicationController
         drug = pharmacy.drugs.create(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
         drug.to_json
     end
+
+    delete '/pharmacies/:id/drugs/:drug_id' do
+        pharmacy = Pharmacy.find_by(id: params[:id])
+        pharmacy.drugs.find_by(id: params[:drug_id]).destroy
+    end
 end
