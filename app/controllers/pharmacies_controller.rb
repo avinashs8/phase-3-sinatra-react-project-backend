@@ -28,6 +28,6 @@ class PharmaciesController < ApplicationController
 
     patch '/pharmacies/:id/drugs/:drug_id' do
         pharmacy = Pharmacy.find_by(id: params[:id])
-        pharmacy.drugs.find_by(id: params[:drug_id]).update(params)
+        pharmacy.drugs.find_by(id: params[:drug_id]).update(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
     end
 end
