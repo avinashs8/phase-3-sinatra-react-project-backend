@@ -5,6 +5,7 @@ class DrugsController < ApplicationController
         drugs.to_json(include: [:pharmacy])
     end
 
+   
 
     post '/drugs' do
         drug = Drug.create(params)
