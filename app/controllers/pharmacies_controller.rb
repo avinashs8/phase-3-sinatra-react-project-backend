@@ -15,6 +15,11 @@ class PharmaciesController < ApplicationController
         pharmacy.to_json
     end
 
+    post '/pharmacies' do
+        pharmacy = Pharmacy.create(params)
+        pharmacy.to_json
+    end
+
     post '/pharmacies/:id' do
         pharmacy = Pharmacy.find_by(id: params[:id])
         drug = pharmacy.drugs.create(name: params[:name], dose: params[:dose], formulation: params[:formulation], quantity: params[:quantity])
